@@ -33,7 +33,7 @@ print( "Number of records: ", len(biased_dataset))
 helper.draw_scatterplot(biased_dataset['avg_scifi_rating'],
                         'Avg scifi rating', biased_dataset['avg_romance_rating'],
                         'Avg romance rating')
-# Let's turn our dataset into a list
+# turn our dataset into a list
 X = biased_dataset[['avg_scifi_rating','avg_romance_rating']].values
 
 # TODO: Import KMeans
@@ -58,10 +58,10 @@ from sklearn.cluster import KMeans
 # Plot
 #helper.draw_clusters(biased_dataset, predictions_2)
 
-# TODO: Create an instance of KMeans to find four clusters
+# Create an instance of KMeans to find four clusters
 kmeans_3 = KMeans(n_clusters =4)
 
-# TODO: use fit_predict to cluster the dataset
+# use fit_predict to cluster the dataset
 predictions_3 = kmeans_3.fit_predict(X)
 
 # Plot
@@ -75,7 +75,7 @@ possible_k_values = range(2, len(X)+1, 5)
 # Calculate error values for all k values we're interested in
 errors_per_k = [helper.clustering_errors(k, X) for k in possible_k_values]
 
-# Optional: Look at the values of K vs the silhouette score of running K-means with that value of k
+# Look at the values of K vs the silhouette score of running K-means with that value of k
 list(zip(possible_k_values, errors_per_k))
 
 # Plot the each value of K vs. the silhouette score at that value
@@ -94,10 +94,10 @@ ax.set_yticks(yticks, minor=False)
 ax.set_yticks(yticks, minor=True)
 ax.yaxis.grid(True, which='both')
 
-# TODO: Create an instance of KMeans to find seven clusters
+# Create an instance of KMeans to find seven clusters
 kmeans_4 = KMeans(n_clusters=7)
 
-# TODO: use fit_predict to cluster the dataset
+# use fit_predict to cluster the dataset
 predictions_4 = kmeans_4.fit_predict(X)
 
 # plot
@@ -160,10 +160,10 @@ clustered = pd.concat([most_rated_movies_1k.reset_index(), pd.DataFrame({'group'
 
 helper.draw_movie_clusters(clustered, max_users, max_movies)
 
-# TODO: Pick a cluster ID from the clusters above
+# Pick a cluster ID from the clusters above
 cluster_number = 6
 
-# Let's filter to only see the region of the dataset with the most number of values
+# filter to only see the region of the dataset with the most number of values
 n_users = 75
 n_movies = 300
 cluster = clustered[clustered.group == cluster_number].drop(['index', 'group'], axis=1)
@@ -174,7 +174,7 @@ helper.draw_movies_heatmap(cluster, axis_labels=False)
 
 cluster.fillna('').head()
 
-# TODO: Fill in the name of the column/movie. e.g. 'Forrest Gump (1994)'
+
 # Pick a movie from the table above since we're looking at a subset
 movie_name = "American Beauty (1999)"
 
